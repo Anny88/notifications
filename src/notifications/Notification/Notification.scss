@@ -1,0 +1,65 @@
+.notification {
+    width: 40vw;
+    max-height: 56px;
+    overflow: hidden;
+    padding: 8px;
+    z-index: 99;
+    border: 2px solid;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    color: #4E4E4E;
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        margin: 0 .4rem;
+
+        .title {
+            font-size: .9rem;
+            font-weight: bolder;
+        }
+
+        .message {
+            font-size: .8rem;
+            padding-top: .4rem;
+        }
+    }
+
+    &.info {
+        background-color: #E8F4F9;
+        border-color: #4699CF;
+    }
+
+    &.success {
+        background-color: #E9F8F4;
+        border-color: #5DC3A1;
+    }
+
+    &.warning {
+        background-color: #FEF7E9;
+        border-color: #F5C462;
+    }
+
+    &.error {
+        background-color: #FAEEF0;
+        border-color: #E26C7C;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    .closeButton {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        color: #4E4E4E;
+    }
+}
+
+

@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import './App.scss';
+import { Notification, Color} from "./notifications/Notification";
 
 function App() {
+  const [notifications, setNotifications] = useState([]);
+
+  const createNotification = (color) =>
+      setNotifications([...notifications, { color, id: notifications.length }]);
+
+  const deleteNotification = (id) =>
+    setNotifications(
+        notifications.filter((notification) => notification.id !== id)
+    );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <h1>Notification Demo</h1>
+        <button onClick={() => createNotification(Color.info)}>Info</button>
+        <button onClick={() => createNotification(Color.success)}>Success</button>
+        <button onClick={() => createNotification(Color.warning)}>Warning</button>
+        <button onClick={() => createNotification(Color.error)}>Error</button>
+        {notifications.map(({ id, color }) => (
+            <Notification
+                key={id}
+                color={color}
+                onDelete={() => deleteNotification(id)}
+                message="something went wrong...."
+            />
+        ))}
+      </div>
   );
 }
 
