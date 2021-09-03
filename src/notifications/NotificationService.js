@@ -1,13 +1,23 @@
-import React, { useContext } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
 import {Notification} from "./Notification";
 import {NotificationContext} from "./NotificationProvider";
 
-const NotificationService = () => {
+const NotificationService = ({ maxAmount = 5 }) => {
     const { notifications,  deleteNotification} = useContext(NotificationContext);
+    const [ notificationsToShow,  setNotificationsToShow ] = useState([]);
+
+    useEffect(() => {
+        if (notifications.length > maxAmount) {
+            setNotificationsToShow(notifications.slice(notifications?.length - maxAmount));
+        } else {
+            setNotificationsToShow(notifications);
+        }
+    }, [maxAmount, notifications, setNotificationsToShow]);
 
     return (
         <div>
-            {notifications.map(({ id, status, title, message }) => (
+            {notificationsToShow.map(({ id, status, title, message }) => (
                 <Notification
                     key={id}
                     status={status}
@@ -19,5 +29,9 @@ const NotificationService = () => {
         </div>
     );
 };
+
+NotificationService.propTypes = {
+    maxAmount: PropTypes.number
+}
 
 export default NotificationService;

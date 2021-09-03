@@ -8,7 +8,7 @@ function App() {
     return (
       <div className="App">
           <NotificationProvider>
-              <NotificationService />
+              <NotificationService maxAmount={6} />
               <DemoPage />
           </NotificationProvider>
       </div>
