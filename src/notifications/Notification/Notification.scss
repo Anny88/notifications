@@ -1,14 +1,17 @@
 .notification {
     width: 40vw;
     max-height: 56px;
+    position: relative;
+    display: flex;
+    justify-content: start;
     overflow: hidden;
     padding: 8px;
     z-index: 99;
     border: 2px solid;
-    position: relative;
-    display: flex;
-    justify-content: start;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 #DBDBDB;
     color: #4E4E4E;
+
 
     .text-content {
         display: flex;
@@ -26,30 +29,6 @@
         }
     }
 
-    &.info {
-        background-color: #E8F4F9;
-        border-color: #4699CF;
-    }
-
-    &.success {
-        background-color: #E9F8F4;
-        border-color: #5DC3A1;
-    }
-
-    &.warning {
-        background-color: #FEF7E9;
-        border-color: #F5C462;
-    }
-
-    &.error {
-        background-color: #FAEEF0;
-        border-color: #E26C7C;
-    }
-
-    &:not(:last-child) {
-        margin-bottom: 8px;
-    }
-
     .closeButton {
         position: absolute;
         top: 12px;
@@ -62,4 +41,28 @@
     }
 }
 
+
+.notification.info {
+    background-color: #E8F4F9;
+    border-color: #4699CF;
+}
+
+.notification.success {
+    background-color: #E9F8F4;
+    border-color: #5DC3A1;
+}
+
+.notification.warning {
+    background-color: #FEF7E9;
+    border-color: #F5C462;
+}
+
+.notification.error {
+    background-color: #FAEEF0;
+    border-color: #E26C7C;
+}
+
+.notification:not(:last-child) {
+    margin-bottom: 12px;
+}
 

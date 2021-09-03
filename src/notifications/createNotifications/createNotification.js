@@ -1,4 +1,4 @@
-import "./container.css";
+import "./notificationsContainer.scss";
 
 export default function createContainer() {
     const containerId = "notificationsContainer";
