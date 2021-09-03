@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 const NotificationContext = createContext(undefined);
 
 const NotificationProvider = (props) => {
@@ -6,7 +7,7 @@ const NotificationProvider = (props) => {
 
     const createNotification = (status, title, message) =>
         setNotifications(  (currentNotifications) => [...currentNotifications,
-            { status, title, message, id: currentNotifications.length }
+            { status, title, message, id: uuid() }
         ]);
 
     const deleteNotification = (id) =>

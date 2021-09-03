@@ -21,7 +21,7 @@ const NotificationService = ({ maxAmount = 5 }) => {
                 <Notification
                     key={id}
                     status={status}
-                    onDelete={() => deleteNotification(id)}
+                    onClose={() => deleteNotification(id)}
                     title={title}
                     message={message}
                 />
