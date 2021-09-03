@@ -9,18 +9,17 @@ import createContainer from "../createNotifications/createNotification";
 import {createPortal} from "react-dom";
 import "./Notification.scss";
 
-const DEFAULT_TITLE = 'Lorem ipsum';
-const DEFAULT_MESSAGE = 'Lorem ipsum ';
+const DEFAULT_MESSAGE = 'Lorem ipsum dolor sit amet';
 
-export function Notification({ status = Color.info, onDelete, title, message }) {
+export function Notification({ status = Color.info, onDelete, title, message = DEFAULT_MESSAGE }) {
     const container = createContainer();
 
     return createPortal(
         <div className={`notification ${status}`}>
             <div className="icon-container">{Icon[status]}</div>
             <div className="text-content">
-                <span className="title">{title || DEFAULT_TITLE}</span>
-                <span className="message">{message || DEFAULT_MESSAGE}</span>
+                <span className="title">{title}</span>
+                <span className="message">{message}</span>
             </div>
             <button className="closeButton" onClick={onDelete}>
                 <CloseIcon fontSize="small" />
