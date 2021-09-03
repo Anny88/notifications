@@ -1,0 +1,30 @@
+@import "src/variables";
+
+#demo-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20vh;
+
+  button {
+    margin-bottom: 16px;
+    height: 32px;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &.info {
+      background-color: $color-info;
+    }
+    &.success {
+      background-color: $color-success;
+    }
+    &.warning {
+      background-color: $color-warning;
+    }
+    &.error {
+      background-color: $color-error;
+    }
+  }
+
+}
