@@ -13,10 +13,17 @@
     border-radius: $border-radius;
     box-shadow: $box-shadow-light;
 
+
+    .icon-container {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+    }
+
     .text-content {
         display: flex;
         flex-direction: column;
-        margin: 0 .4rem;
+        margin: 0 28px;
 
         .title {
             font-size: .9rem;
@@ -31,8 +38,8 @@
 
     .closeButton {
         position: absolute;
-        top: 12px;
-        right: 12px;
+        top: 8px;
+        right: 8px;
         background: transparent;
         padding: 0;
         border: none;
@@ -45,21 +52,33 @@
 .notification.info {
     background-color: $color-info-light;
     border-color: $color-info;
+    svg {
+        color: $color-info;
+    }
 }
 
 .notification.success {
     background-color: $color-success-light;
     border-color: $color-success;
+    svg {
+        color: $color-success;
+    }
 }
 
 .notification.warning {
     background-color: $color-warning-light;
     border-color: $color-warning;
+    svg {
+        color: $color-warning;
+    }
 }
 
 .notification.error {
     background-color: $color-error-light;
     border-color: $color-error;
+    svg {
+        color: $color-error;
+    }
 }
 
 .notification:not(:last-child) {

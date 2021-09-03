@@ -23,8 +23,9 @@ function App() {
         {notifications.map(({ id, color }) => (
             <Notification
                 key={id}
-                color={color}
+                status={color}
                 onDelete={() => deleteNotification(id)}
+                title="Some status"
                 message="something went wrong...."
             />
         ))}
